@@ -14,7 +14,8 @@ def main(local, remote, svc, localdir, remotedir):
     print("stdout:",stdoutval)
     print("stderr:",stderrval)
 
-    transfer = ['globus', 'transfer', '--delete', '--sync-level', 'checksum', '--recursive', 
+    transfer = ['globus', 'transfer', '--delete', '--sync-level', 
+                'checksum', '--recursive', '--preserve-mtime',
                 local+":"+localdir, remote+":"+remotedir]
     process = subprocess.Popen(transfer,
                                stdout=subprocess.PIPE,
